@@ -41,7 +41,7 @@ int main()
 			cin >> A[i][j];
 		}
 	}
-
+	/*
 	cout << "Test print out of array 1 : " << endl;
 	for (i = 0; i<AD[0]; ++i) {
 		for (j = 0; j < AD[1]; ++j) {
@@ -49,9 +49,10 @@ int main()
 		}
 		cout << endl;
 	}
+	*/
 
 	// get user array dimentions for second array
-	cout << "Please input the row and column dimensions of the second array: ";
+	cout << endl <<  "Please input the row and column dimensions of the second array: ";
 	for (i = 0; i<2; ++i) {
 		switch (i) {
 		case 0: cin >> BD[0]; break;
@@ -67,6 +68,7 @@ int main()
 		}
 	}
 
+	/*
 	cout << "Test print out of array 2 : " << endl;
 	for (i = 0; i<BD[0]; ++i) {
 		for (j = 0; j < BD[1]; ++j) {
@@ -74,6 +76,7 @@ int main()
 		}
 		cout << endl;
 	}
+	*/
 
 	// check to see if the multiplication is possible
 	if (AD[1] != BD[0]) {
@@ -85,7 +88,27 @@ int main()
 	CD[0] = AD[0];
 	CD[1] = BD[1];
 
-	// TODO : don't forget to make sure that array c knows how many rows & cols to print out. 
+
+	// DO THE MATHS!!!
+	// compute n x p matrix C for n x m martix A, m x p matrix B, store result in C
+	for (i = 0; i < AD[0]; ++i) {
+		for (j = 0; j < BD[1]; ++j) {
+			for (k = 0; k < AD[1]; ++k) {
+				C[i][j] = C[i][j] + A[i][k] * B[k][j];
+			}
+		}
+
+	}
+
+	// print out array C, with ALL THE ANSWERS!
+	cout << endl << "The answer is : " << endl;
+	for (i = 0; i<CD[0]; ++i) {
+		for (j = 0; j < CD[1]; ++j) {
+			cout << C[i][j] << "\t";
+		}
+		cout << endl;
+	}
+
     return 0;
 }
 
